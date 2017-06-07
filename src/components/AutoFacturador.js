@@ -1,6 +1,7 @@
 import React from 'react';
-import {reduxForm,FieldArray} from 'redux-form/immutable'
+import {Field,reduxForm,FieldArray} from 'redux-form/immutable'
 import {Col, Row ,Card } from 'reactstrap';
+import Button from '../containers/button';
 
 const renderField = ({input, type, meta: {touched, error}}) => (
   <div>
@@ -22,7 +23,7 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 					<br/>
 					<Row>
 						<Col className="col-sm-6" >
-							<input
+							<Field
 								name={`${member}.firstName`}
 								type="text"
 								placeholder="Número de operación"
@@ -31,7 +32,7 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 							/>
 						</Col>
 						<Col className="col-sm-5">
-							<input
+							<Field
 								name={`${member}.lastName`}
 								type="text"
 								placeholder="Llave de Pago"
@@ -53,11 +54,13 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 
 class AutoFacturador extends React.Component {
 	render() {
-	const {props: {onChange, pagos} }=this;
+	const { props: { pagos, onClick } }=this;
+
 	return (
 		<div>
 			<div>
-			<h3>Generar su propia factura</h3>
+			{ onClick }
+				<h3>Generar su propia factura</h3>
 			</div>
 			<form id="autoinvoice">
 				<fieldset>
@@ -68,7 +71,7 @@ class AutoFacturador extends React.Component {
 					<Col className="col-sm-6">
 						<Row>
 							<Col className="col-sm-6">
-								<input
+								<Field
 									name="clubName"
 									type="text"
 									placeholder="Número de operación"
@@ -78,7 +81,7 @@ class AutoFacturador extends React.Component {
 								/>
 							</Col>
 							<Col className="col-sm-5">
-								<input
+								<Field
 									name="clubName1"
 									type="text"
 									placeholder="Llave de Pago"
@@ -90,11 +93,11 @@ class AutoFacturador extends React.Component {
 						</Row>
 						<FieldArray name="members" component={renderMembers} />
 						<br/>
-						<button data-style="zoom-in" type="button" className="btn btn-primary" onClick={ this.props.retrieveFilteredReceipts }><i title="Buscar" className="fa fa-search fa-1x"/></button>
+						<Button pagos={pagos} />
 					</Col>
 					<Col className="col-md-6">
 						<Card block>
-							<h5>Codigo</h5>
+							<h5>{onClick}</h5>
 							<ul>
 								<li>Conceptos: </li>
 								<ul>

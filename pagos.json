@@ -4,111 +4,431 @@
       "code": "151833|6KFG266",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "sub_total": "12.06",
       "transferred_taxes": "1.94",
       "total": "14",
       "retained_taxes": "0",
-      "id": 1
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"lt",
+          "descripcion":"agua",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"huevo",
+          "precio_unitario":"30.00"
+        }
+      ],
+      "id": 1,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
+
+
     },
     {
       "code": "151833|6KFG266",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "sub_total": "15",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "total": "15",
-      "id": 2
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"lt",
+          "descripcion":"agua",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"torta",
+          "precio_unitario":"15.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"filete",
+          "precio_unitario":"85.00"
+
+        }
+      ],
+      "id": 2,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151833|6KFG266",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "sub_total": "25",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "total": "25",
-      "id": 3
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"agua",
+          "precio_unitario":"10.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"filete",
+          "precio_unitario":"80.00"
+
+        }
+      ],
+      "id": 3,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151833|6KFG266",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "36",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "36",
-      "id": 4
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"torta",
+          "precio_unitario":"20.00"
+
+        }
+      ],
+      "id": 4,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151834|6KFG267",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "14",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "14",
-      "id": 5
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"agua limon",
+          "precio_unitario":"40.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"camarones",
+          "precio_unitario":"100.00"
+
+        }
+      ],
+      "id": 5,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151834|6KFG267",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "15",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "15",
-      "id": 6
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"salchichas",
+          "precio_unitario":"25.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"pizza",
+          "precio_unitario":"120.00"
+
+        }
+      ],
+      "id": 6,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151835|6KFG268",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "14",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "14",
-      "id": 7
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"pescado",
+          "precio_unitario":"150.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"agua",
+          "precio_unitario":"20.00"
+
+        }
+      ],
+      "id": 7,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151835|6KFG268",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "15",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "15",
-      "id": 8
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"Torta jamon",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"agua de limon",
+          "precio_unitario":"20.00"
+
+        }
+      ],
+      "id": 8,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "151835|6KFG268",
       "state": "U",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "25",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "25",
-      "id": 9
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"pechuga de pollo",
+          "precio_unitario":"55.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"agua fresca",
+          "precio_unitario":"20.00"
+
+        }
+      ],
+      "id": 9,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     },
     {
       "code": "134435|6hFG268",
       "state": "I",
       "payment_date": "2016-08-01",
+      "rfc": "XAXX010101XXX",
       "total": "25",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "25",
-      "id": 10
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"menudo",
+          "precio_unitario":"45.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"doritos",
+          "precio_unitario":"10.00"
+
+        }
+      ],
+      "id": 10,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "224dwe-5433-234dsd3-34fce-434322"
+      }
     },
     {
       "code": "121835|6KkG268",
       "state": "I",
       "payment_date": "2016-08-01",
+      "rfc": "jose5342gsjxh",
       "total": "25",
       "transferred_taxes": "0",
       "retained_taxes": "0",
       "sub_total": "25",
-      "id": 11
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco",
+          "precio_unitario":"15.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"tacos dorados",
+          "precio_unitario":"30.00"
+
+        }
+      ],
+      "id": 11,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
+    },
+    {
+      "code": "141552|6KvG268",
+      "state": "E",
+      "payment_date": "2017-09-02",
+      "rfc": "jose5342gsjxh",
+      "total": "55",
+      "transferred_taxes": "0",
+      "retained_taxes": "12",
+      "sub_total": "25",
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco sabor",
+          "precio_unitario":"20.00"
+
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"tacos al pastor",
+          "precio_unitario":"60.00"
+
+        }
+      ],
+      "id": 12,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
+    },
+    {
+      "code": "111552|6KvG262",
+      "state": "I",
+      "payment_date": "2017-08-02",
+      "rfc": "jose5342gsjxh",
+      "total": "55",
+      "transferred_taxes": "0",
+      "retained_taxes": "12",
+      "sub_total": "25",
+      "concepto":[
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"refresco",
+          "precio_unitario":"20.00"
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"filete",
+          "precio_unitario":"120.00"
+        },
+        {
+          "cantidad":"1",
+          "unidad":"KG",
+          "descripcion":"torta",
+          "precio_unitario":"20.00"
+        }
+      ],
+      "id": 13,
+      "invoice_data":{
+          "receptor": "pepe",
+          "uuid": "12345678-09876543-12345678-12309456-34322-234-2345654-23432"
+      }
     }
+
   ]
 }
