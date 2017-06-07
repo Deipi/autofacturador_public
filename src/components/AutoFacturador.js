@@ -1,7 +1,6 @@
 import React from 'react';
-import {Field, reduxForm,FieldArray} from 'redux-form/immutable'
-import { Breadcrumb, BreadcrumbItem,Col, Row ,Card } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import {reduxForm,FieldArray} from 'redux-form/immutable'
+import {Col, Row ,Card } from 'reactstrap';
 
 const renderField = ({input, type, meta: {touched, error}}) => (
   <div>
@@ -50,12 +49,15 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 				</div>
 		</ul>
 )
+//{pagos.map(z=>z.get('code'))}
 
-const AutoFacturador = props => {
+class AutoFacturador extends React.Component {
+	render() {
+	const {props: {onChange, pagos} }=this;
 	return (
 		<div>
 			<div>
-				<h3>Generar su propia factura</h3>
+			<h3>Generar su propia factura</h3>
 			</div>
 			<form id="autoinvoice">
 				<fieldset>
@@ -71,6 +73,7 @@ const AutoFacturador = props => {
 									type="text"
 									placeholder="Número de operación"
 									component={renderField}
+									onChange={ this.props.onTextUpdate }
 									className="input-lg upper load-info receipt-key textinput textInput form-control required"
 								/>
 							</Col>
@@ -80,13 +83,14 @@ const AutoFacturador = props => {
 									type="text"
 									placeholder="Llave de Pago"
 									component={renderField}
+									onChange={ this.props.onTextUpdate }
 									className="input-lg upper load-info receipt-key textinput textInput form-control required"
 								/>
 							</Col>
 						</Row>
 						<FieldArray name="members" component={renderMembers} />
 						<br/>
-						<button data-style="zoom-in" type="button" className="btn btn-primary"><i title="Buscar" className="fa fa-search fa-1x"/></button>
+						<button data-style="zoom-in" type="button" className="btn btn-primary" onClick={ this.props.retrieveFilteredReceipts }><i title="Buscar" className="fa fa-search fa-1x"/></button>
 					</Col>
 					<Col className="col-md-6">
 						<Card block>
@@ -175,6 +179,7 @@ const AutoFacturador = props => {
 			</form>
 		</div>
 	);
+}
 }
 
 export default reduxForm({
