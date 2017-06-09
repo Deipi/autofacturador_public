@@ -12,7 +12,6 @@ class Button extends Component {
 		this.joincode = this.joincode.bind(this);
 	}
 	joincode() {
-		debugger
 		const { dispatch, pagos } = this.props;
 		const code =`${this.props.clubName}|${this.props.clubName1}`;
 		dispatch(fetchPagos(qs.stringify({ code: [ code ] })))
