@@ -1,12 +1,13 @@
 import React from 'react';
 import {Field,reduxForm,FieldArray} from 'redux-form/immutable'
 import {Col, Row ,Card } from 'reactstrap';
+import { connect } from 'react-redux';
 import Button from '../containers/button';
 
-const renderField = ({input, type, meta: {touched, error}}) => (
+const renderField = ({input,placeholder,type, meta: {touched, error}}) => (
   <div>
 	<div>
-	  <input {...input} type={type} />
+	  <input className="form-control" {...input} placeholder={placeholder} type={type} />
 	  {touched && error && <span>{error}</span>}
 	</div>
   </div>
@@ -24,11 +25,10 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 					<Row>
 						<Col className="col-sm-6" >
 							<Field
+								placeholder="Numero de operacion"
 								name={`${member}.firstName`}
 								type="text"
-								placeholder="Número de operación"
 								component={renderField}
-								className="input-lg upper load-info receipt-key textinput textInput form-control required"
 							/>
 						</Col>
 						<Col className="col-sm-5">
@@ -37,7 +37,6 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 								type="text"
 								placeholder="Llave de Pago"
 								component={renderField}
-								className="input-lg upper load-info receipt-key textinput textInput form-control required"
 							/>
 						</Col>
 					</Row>
@@ -54,12 +53,11 @@ const renderMembers = ({fields,  meta: {error, submitFailed}}) => (
 
 class AutoFacturador extends React.Component {
 	render() {
-	const { props: { pagos, onClick } }=this;
+	const { state }=this;
 
 	return (
 		<div>
 			<div>
-			{ onClick }
 				<h3>Generar su propia factura</h3>
 			</div>
 			<form id="autoinvoice">
@@ -72,32 +70,30 @@ class AutoFacturador extends React.Component {
 						<Row>
 							<Col className="col-sm-6">
 								<Field
+									placeholder="Numero de operación"
 									name="clubName"
 									type="text"
-									placeholder="Número de operación"
 									component={renderField}
 									onChange={ this.props.onTextUpdate }
-									className="input-lg upper load-info receipt-key textinput textInput form-control required"
 								/>
 							</Col>
 							<Col className="col-sm-5">
 								<Field
+									placeholder="Llave de pago"
 									name="clubName1"
 									type="text"
-									placeholder="Llave de Pago"
 									component={renderField}
 									onChange={ this.props.onTextUpdate }
-									className="input-lg upper load-info receipt-key textinput textInput form-control required"
 								/>
 							</Col>
 						</Row>
 						<FieldArray name="members" component={renderMembers} />
 						<br/>
-						<Button pagos={pagos} />
+						<Button/>
 					</Col>
 					<Col className="col-md-6">
 						<Card block>
-							<h5>{onClick}</h5>
+							<h5>{ this.props.pagos}</h5>
 							<ul>
 								<li>Conceptos: </li>
 								<ul>
@@ -185,6 +181,6 @@ class AutoFacturador extends React.Component {
 }
 }
 
-export default reduxForm({
+export default connect(state => ({pagos: state.get('pagos')}))(reduxForm({
   form: 'fieldArrays', // a unique identifier for this form
-})(AutoFacturador)
+})(AutoFacturador))

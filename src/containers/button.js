@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form/immutable';
 import fetchPagos from '../actions/receipt';
-
+import qs from 'qs';
 
 const selector = formValueSelector('fieldArrays');
 
@@ -12,18 +12,10 @@ class Button extends Component {
 		this.joincode = this.joincode.bind(this);
 	}
 	joincode() {
+		debugger
 		const { dispatch, pagos } = this.props;
-		const joincodeoll=`${this.props.clubName}|${this.props.clubName1}`;
-		//const k = pagos.toJS().
-		const queryArray = []
-		for (var key in joincodeoll) {
-			if (joincodeoll.hasOwnProperty(key)) {
-				if (joincodeoll[key]) {
-					queryArray.push(`${ key }=${joincodeoll[key]}`);
-				}
-			}
-		}
-		dispatch(fetchPagos(queryArray.join('&')))
+		const code =`${this.props.clubName}|${this.props.clubName1}`;
+		dispatch(fetchPagos(qs.stringify({ code: [ code ] })))
 	}
 	render(){
 		return (
@@ -36,6 +28,6 @@ class Button extends Component {
 
 
 }
-const getValues = state => selector(state, 'clubName', 'clubName1');
+const getValues = state => selector(state, 'clubName', 'clubName1', 'members');
 
 export default connect(getValues)(Button);
