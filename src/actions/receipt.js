@@ -1,6 +1,7 @@
 export const FETCHED_PAGOS = 'FETCHED_PAGOS';
+import qs from 'qs';
 
-export const fetchPagos = (filter) => (dispatch, getStore) => fetch(`http://localhost:3005/pagos?${filter}`, {
+export const fetchPagos = (code) => (dispatch, getStore) => fetch(`http://localhost:3005/pagos?${qs.stringify({ code: [ code ] })}`, {
 	method: 'GET',
 	headers: {
 		'Content-Type': 'application/json'
