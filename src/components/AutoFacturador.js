@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 import {Field,reduxForm,FieldArray} from 'redux-form/immutable'
 
 import {Col, Row ,Card } from 'reactstrap';
@@ -16,44 +17,53 @@ const renderField = ({input,placeholder,type, meta: {touched, error}}) => (
   </div>
 )
 
-const renderClaves = ({fields,  meta: {error, submitFailed}}) => (
-		<ul>
-			<div>
-				<i className="fa fa-plus-circle icon-green ro pull-right"  onClick={() => fields.push({})} />
-				{submitFailed && error && <span>{error}</span>}
-			</div>
-			{fields.map((Claves, index) => (
-				<div key={index}>
-					<br/>
-					<Row>
-						<Col className="col-sm-6" >
-							<Field
-								placeholder="Numero de operacion"
-								name={`${Claves}.NumerosOperacion`}
-								type="text"
-								component={renderField}
-							/>
-						</Col>
-						<Col className="col-sm-5">
-							<Field
-								name={`${Claves}.LlavesPago`}
-								type="text"
-								placeholder="Llave de Pago"
-								component={renderField}
-							/>
-						</Col>
-					</Row>
-					<i onClick={() => fields.remove(index)}
-					className="fa fa-trash-o pull-right" aria-hidden="true"></i>
-				</div>
-			))}
-				<div>
-					<a href="#" onClick={() => fields.push({})} >Agregar otro pago a su factura</a>
-				</div>
-		</ul>
-)
-//{pagos.map(z=>z.get('code'))}
+class renderClaves extends React.Component {
+	componentWillMount() {
+		const { fields } = this.props;
+		fields.push(Immutable.Map());
+	}
 
+	render() {
+		const { fields, meta: { error, submitFailed } } = this.props;
+
+		return (
+			<ul>
+				<div>
+					<i className="fa fa-plus-circle icon-green ro pull-right"  onClick={() => fields.push({})} />
+					{submitFailed && error && <span>{error}</span>}
+				</div>
+				{fields.map((Claves, index) => (
+					<div key={index}>
+						<br/>
+						<Row>
+							<Col className="col-sm-6" >
+								<Field
+									placeholder="Numero de operacion"
+									name={`${Claves}.NumerosOperacion`}
+									type="text"
+									component={renderField}
+								/>
+							</Col>
+							<Col className="col-sm-5">
+								<Field
+									name={`${Claves}.LlavesPago`}
+									type="text"
+									placeholder="Llave de Pago"
+									component={renderField}
+								/>
+							</Col>
+						</Row>
+						<i onClick={() => fields.remove(index)}
+						className="fa fa-trash-o pull-right" aria-hidden="true"></i>
+					</div>
+				))}
+					<div>
+						<a href="#" onClick={() => fields.push({})} >Agregar otro pago a su factura</a>
+					</div>
+			</ul>
+		);
+	}
+}
 
 class AutoFacturador extends React.Component {
 	render() {
@@ -70,33 +80,12 @@ class AutoFacturador extends React.Component {
 					<hr/>
 					<Row>
 						<Col className="col-sm-6">
-							<Row>
-								<Col className="col-sm-6">
-									<Field
-										placeholder="Numero de operación"
-										name="NumOperacion"
-										type="text"
-										component={renderField}
-										onChange={ this.props.onTextUpdate }
-									/>
-								</Col>
-								<Col className="col-sm-5">
-									<Field
-										placeholder="Llave de pago"
-										name="LlavePago"
-										type="text"
-										component={renderField}
-										onChange={ this.props.onTextUpdate }
-									/>
-								</Col>
-							</Row>
 							<FieldArray name="claves" component={renderClaves} />
 							<br/>
 							<Button/>
 						</Col>
 						<Col className="col-md-6">
 							<Card block>
-
 								<strong>{pagos.map(c=> c.get('code'))}</strong>
 								<ul>
 										{pagos.map(e=> e.get('concepto').map( i=>(<div key={ i }><li>Concepto: </li><ul>{ i.get('descripcion')}</ul><ul><h9>Precio Unitario : $</h9>{ i.get('precio_unitario')}<h9> (Cantidad 1).</h9></ul></div>)))}
@@ -116,7 +105,7 @@ class AutoFacturador extends React.Component {
 							<div className="controls">
 								<input className="textinput textInput form-control required tt-hint" type="text" placeholder="Nombre"></input>
 							</div>
-						</div><br/><br/>
+						</div><br/><br/><br/>
 						<div className="col-sm-6">
 							<div className="controls">
 								<input className="textinput textInput form-control required tt-hint" type="text" placeholder="Calle"></input>

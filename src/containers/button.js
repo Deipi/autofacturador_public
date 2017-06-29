@@ -13,8 +13,7 @@ class Button extends Component {
 
 	joincode() {
 		const { dispatch } = this.props;
-		//const code =`${this.props.NumOperacion}|${this.props.LlavePago}`,;
-		const code =`${this.props.claves.getIn([0, 'NumerosOperacion'])}|${this.props.claves.getIn([0, 'LlavesPago'])}`;
+		const code = `code=${ this.props.claves.map(obj => `${ obj.get('NumerosOperacion') }|${ obj.get('LlavesPago') }` ).toJS().join('&-').split('-').join('code=') }`;
 		dispatch(fetchPagos(code));
 
 	}
