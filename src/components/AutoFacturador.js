@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import {Field,reduxForm,FieldArray} from 'redux-form/immutable'
 
 import {Col, Row ,Card } from 'reactstrap';
-//import validate from '../validate'
+import validate from '../validate'
 import { connect } from 'react-redux';
 import Button from '../containers/button';
 
@@ -32,21 +32,21 @@ class renderClaves extends React.Component {
 					<i className="fa fa-plus-circle icon-green ro pull-right"  onClick={() => fields.push({})} />
 					{submitFailed && error && <span>{error}</span>}
 				</div>
-				{fields.map((Claves, index) => (
+				{fields.map((claves, index) => (
 					<div key={index}>
 						<br/>
 						<Row>
 							<Col className="col-sm-6" >
 								<Field
 									placeholder="Numero de operacion"
-									name={`${Claves}.NumerosOperacion`}
+									name={`${claves}.NumerosOperacion`}
 									type="text"
 									component={renderField}
 								/>
 							</Col>
 							<Col className="col-sm-5">
 								<Field
-									name={`${Claves}.LlavesPago`}
+									name={`${claves}.LlavesPago`}
 									type="text"
 									placeholder="Llave de Pago"
 									component={renderField}
@@ -85,11 +85,19 @@ class AutoFacturador extends React.Component {
 							<Button/>
 						</Col>
 						<Col className="col-md-6">
-							<Card block>
-								<strong>{pagos.map(c=> c.get('code'))}</strong>
-								<ul>
-										{pagos.map(e=> e.get('concepto').map( i=>(<div key={ i }><li>Concepto: </li><ul>{ i.get('descripcion')}</ul><ul><h9>Precio Unitario : $</h9>{ i.get('precio_unitario')}<h9> (Cantidad 1).</h9></ul></div>)))}
-								</ul>
+						<Card block>
+							{
+
+								pagos.map(c=>
+								<div key={ c }>
+									<strong>{ c.get('code') }</strong>
+									<ul>
+										{ c.get('concepto').map( i=>(<div key={ i }><li>Concepto: </li>
+											<ul>{ i.get('descripcion')}</ul><ul><h9>Precio Unitario : $
+											</h9>{ i.get('precio_unitario')}<h9> (Cantidad 1).</h9></ul></div>))}
+									</ul>
+									</div>
+							)}
 							</Card>
 						</Col>
 					</Row>
@@ -171,5 +179,5 @@ class AutoFacturador extends React.Component {
 
 export default connect(state => ({pagos: state.get('pagos')}))(reduxForm({
   form: 'fieldArrays', // a unique identifier for this form
-  //validate
+  validate
 })(AutoFacturador))
